@@ -442,38 +442,32 @@ for i in range(3):
     sys.stdout.write(".")
     sys.stdout.flush()
 if formato == "binario":
-    while decimal_binario(usersSolve) != encryptedWinnerInt:
-            print("\nOh, no... Parece que ese número no era el correcto, pero podemos volver a intentarlo.")
-            usersSolve = int(input("Ingresa la solución al acertijo final: "))
-            print("Desencriptando...")
-            for i in range(3):
-                time.sleep(1.5)
-                sys.stdout.write(".")
-                sys.stdout.flush()
+    if decimal_binario(usersSolve) != encryptedWinnerInt:
+            print("\nOh, no... Parece que ese número no era el correcto.")
+            print("-----------------------------------------------------------")
+            print("       LA RESPUESTA CORRECTA ERA: {}. GAME OVER :'V.       ".format(winnerInt))
+            print("-----------------------------------------------------------")
+            exit()
     print("\n-----------------------------------------------------------")
-    print("Desencriptación exitosa. ¡Felicidades! Has ganado el juego!")
+    print("Desencriptación exitosa. ¡Felicidades! Has ganado el juego.")
     print("-----------------------------------------------------------")
 elif formato == "octal":
-    while decimal_octal(usersSolve) != encryptedWinnerInt:
-            print("\nOh, no... Parece que ese número no era el correcto, pero podemos volver a intentarlo.")
-            usersSolve = int(input("Ingresa la solución al acertijo final: "))
-            print("Desencriptando...")
-            for i in range(3):
-                time.sleep(1.5)
-                sys.stdout.write(".")
-                sys.stdout.flush()
+    if decimal_octal(usersSolve) != encryptedWinnerInt:
+            print("\nOh, no... Parece que ese número no era el correcto.")
+            print("-----------------------------------------------------------")
+            print("       LA RESPUESTA CORRECTA ERA: {}. GAME OVER :'V.       ".format(winnerInt))
+            print("-----------------------------------------------------------")
+            exit()
     print("\n-----------------------------------------------------------")
-    print("Desencriptación exitosa. ¡Felicidades! Has ganado el juego!")
+    print("Desencriptación exitosa. ¡Felicidades! Has ganado el juego.")
     print("-----------------------------------------------------------")
 else:
-    while decimal_hexadecimal(usersSolve) != encryptedWinnerInt[2:]:
-            print("\nOh, no... Parece que ese número no era el correcto, pero podemos volver a intentarlo.")
-            usersSolve = int(input("Ingresa la solución al acertijo final: "))
-            print("Desencriptando...")
-            for i in range(3):
-                time.sleep(1.5)
-                sys.stdout.write(".")
-                sys.stdout.flush()
+    if decimal_hexadecimal(usersSolve) != encryptedWinnerInt[2:]:
+        print("\nOh, no... Parece que ese número no era el correcto.")
+        print("-----------------------------------------------------------")
+        print("       LA RESPUESTA CORRECTA ERA: {}. GAME OVER :'V.       ".format(winnerInt))
+        print("-----------------------------------------------------------")
+        exit()
     print("\n-----------------------------------------------------------")
-    print("Desencriptación exitosa. ¡Felicidades! Has ganado el juego!")
+    print("Desencriptación exitosa. ¡Felicidades! Has ganado el juego.")
     print("-----------------------------------------------------------")
