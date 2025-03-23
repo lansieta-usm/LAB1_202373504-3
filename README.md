@@ -1,6 +1,6 @@
 # LAB1_202373504-3
 Nombres:
-    Lucas Ansieta M. Rol: 202373504-3
+    Lucas Ansieta M. Rol: 202373504-3. Paralelo 200.
     ...
 
 Entornos de desarrollo: Visual Studio Code (macOS).
