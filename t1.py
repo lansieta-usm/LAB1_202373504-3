@@ -172,7 +172,7 @@ ______ _                          _____             _
                            __/ |                                                                 
                           |___/                                                                  
 """)
-
+desafioFinal = False
 SnakeX = 0
 SnakeY = 5
 boardLarge = int(input("Ingresa el largo del tablero: "))
@@ -196,6 +196,8 @@ board = generarTablero(boardLarge)
 generarGuardias(board, boardLarge, guardias)
 
 while True: #Ciclo de juego, termina cuando Snake llega al objetivo
+    if desafioFinal == True:
+        break
     print()
     if boardSize == "pequeño":
         print("MODO DE JUEGO: PASILLO PEQUEÑO.")
@@ -230,9 +232,21 @@ Selecciona una opción: """)
             else:
                 steps = hexadecimal_decimal(numsysSteps)
         board[SnakeY][SnakeX] = "X"
-        SnakeY-=steps
+        i=0
+        while i<steps:
+            SnakeY-=1
+            if SnakeY<0:
+                break
+            if board[SnakeY][SnakeX] == "*":
+                desafioFinal = True
+            elif board[SnakeY][SnakeX] == "!":
+                print("-----------------------------------------------------------")
+                print("        GAME OVER: FUISTE ATRAPADO POR LOS GUARDIAS        ")
+                print("-----------------------------------------------------------")
+                exit()
+            i+=1
         while SnakeY<0:
-            SnakeY+=steps
+            SnakeY+=(i+1)
             numsysSteps = input("Error: El número de pasos ingresado sobrepasa los límites del pasillo. Reingresa la cantidad de pasos que quieres moverte hacia arriba en formato {}: ".format(formato))
             if formato == "binario":
                 steps = binario_decimal(numsysSteps)
@@ -248,7 +262,19 @@ Selecciona una opción: """)
                     steps = octal_decimal(numsysSteps)
                 else:
                     steps = hexadecimal_decimal(numsysSteps)
-            SnakeY-=steps
+            i=0
+            while i<steps:
+                SnakeY-=1
+                if SnakeY<0:
+                    break
+                if board[SnakeY][SnakeX] == "*":
+                    desafioFinal = True
+                elif board[SnakeY][SnakeX] == "!":
+                    print("-----------------------------------------------------------")
+                    print("        GAME OVER: FUISTE ATRAPADO POR LOS GUARDIAS        ")
+                    print("-----------------------------------------------------------")
+                    exit()
+                i+=1
         if board[SnakeY][SnakeX] == "X":
             board[SnakeY][SnakeX] = "S"
         elif board[SnakeY][SnakeX] == "*":
@@ -275,9 +301,21 @@ Selecciona una opción: """)
             else:
                 steps = hexadecimal_decimal(numsysSteps)
         board[SnakeY][SnakeX] = "X"
-        SnakeX-=steps
+        i=0
+        while i<steps:
+            SnakeX-=1
+            if SnakeX<0:
+                break
+            if board[SnakeY][SnakeX] == "*":
+                desafioFinal = True
+            elif board[SnakeY][SnakeX] == "!":
+                print("-----------------------------------------------------------")
+                print("        GAME OVER: FUISTE ATRAPADO POR LOS GUARDIAS        ")
+                print("-----------------------------------------------------------")
+                exit()
+            i+=1
         while SnakeX<0:
-            SnakeX+=steps
+            SnakeX+=(i+1)
             numsysSteps = input("Error: El número de pasos ingresado sobrepasa los límites del pasillo. Reingresa la cantidad de pasos que quieres moverte hacia la izquierda en formato {}: ".format(formato))
             if formato == "binario":
                 steps = binario_decimal(numsysSteps)
@@ -293,7 +331,19 @@ Selecciona una opción: """)
                     steps = octal_decimal(numsysSteps)
                 else:
                     steps = hexadecimal_decimal(numsysSteps)
-            SnakeX-=steps
+            i=0
+            while i<steps:
+                SnakeX-=1
+                if SnakeX<0:
+                    break
+                if board[SnakeY][SnakeX] == "*":
+                    desafioFinal = True
+                elif board[SnakeY][SnakeX] == "!":
+                    print("-----------------------------------------------------------")
+                    print("        GAME OVER: FUISTE ATRAPADO POR LOS GUARDIAS        ")
+                    print("-----------------------------------------------------------")
+                    exit()
+                i+=1
         if board[SnakeY][SnakeX] == "X":
             board[SnakeY][SnakeX] = "S"
         elif board[SnakeY][SnakeX] == "*":
@@ -320,9 +370,21 @@ Selecciona una opción: """)
             else:
                 steps = hexadecimal_decimal(numsysSteps)
         board[SnakeY][SnakeX] = "X"
-        SnakeY+=steps
+        i=0
+        while i<steps:
+            SnakeY+=1
+            if SnakeY>10:
+                break
+            if board[SnakeY][SnakeX] == "*":
+                desafioFinal = True
+            elif board[SnakeY][SnakeX] == "!":
+                print("-----------------------------------------------------------")
+                print("        GAME OVER: FUISTE ATRAPADO POR LOS GUARDIAS        ")
+                print("-----------------------------------------------------------")
+                exit()
+            i+=1
         while SnakeY>10:
-            SnakeY-=steps
+            SnakeY-=(i+1)
             numsysSteps = input("Error: El número de pasos ingresado sobrepasa los límites del pasillo. Reingresa la cantidad de pasos que quieres moverte hacia arriba en formato {}: ".format(formato))
             if formato == "binario":
                 steps = binario_decimal(numsysSteps)
@@ -338,7 +400,19 @@ Selecciona una opción: """)
                     steps = octal_decimal(numsysSteps)
                 else:
                     steps = hexadecimal_decimal(numsysSteps)
-            SnakeY+=steps
+            i=0
+            while i<steps:
+                SnakeY+=1
+                if SnakeY>10:
+                    break
+                if board[SnakeY][SnakeX] == "*":
+                    desafioFinal = True
+                elif board[SnakeY][SnakeX] == "!":
+                    print("-----------------------------------------------------------")
+                    print("        GAME OVER: FUISTE ATRAPADO POR LOS GUARDIAS        ")
+                    print("-----------------------------------------------------------")
+                    exit()
+                i+=1
         if board[SnakeY][SnakeX] == "X":
             board[SnakeY][SnakeX] = "S"
         elif board[SnakeY][SnakeX] == "*":
@@ -365,9 +439,21 @@ Selecciona una opción: """)
             else:
                 steps = hexadecimal_decimal(numsysSteps)
         board[SnakeY][SnakeX] = "X"
-        SnakeX+=steps
+        i=0
+        while i<steps:
+            SnakeX+=1
+            if SnakeX>boardLarge-1:
+                break
+            if board[SnakeY][SnakeX] == "*":
+                desafioFinal = True
+            elif board[SnakeY][SnakeX] == "!":
+                print("-----------------------------------------------------------")
+                print("        GAME OVER: FUISTE ATRAPADO POR LOS GUARDIAS        ")
+                print("-----------------------------------------------------------")
+                exit()
+            i+=1
         while SnakeX>boardLarge-1:
-            SnakeX-=steps
+            SnakeX-=(i+1)
             numsysSteps = input("Error: El número de pasos ingresado sobrepasa los límites del pasillo. Reingresa la cantidad de pasos que quieres moverte hacia la derecha en formato {}: ".format(formato))
             if formato == "binario":
                 steps = binario_decimal(numsysSteps)
@@ -383,7 +469,19 @@ Selecciona una opción: """)
                     steps = octal_decimal(numsysSteps)
                 else:
                     steps = hexadecimal_decimal(numsysSteps)
-            SnakeX+=steps
+            i=0
+            while i<steps:
+                SnakeX+=1
+                if SnakeX>boardLarge-1:
+                    break
+                if board[SnakeY][SnakeX] == "*":
+                    desafioFinal = True
+                elif board[SnakeY][SnakeX] == "!":
+                    print("-----------------------------------------------------------")
+                    print("        GAME OVER: FUISTE ATRAPADO POR LOS GUARDIAS        ")
+                    print("-----------------------------------------------------------")
+                    exit()
+                i+=1
         if board[SnakeY][SnakeX] == "X":
             board[SnakeY][SnakeX] = "S"
         elif board[SnakeY][SnakeX] == "*":
